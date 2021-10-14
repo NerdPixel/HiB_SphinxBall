@@ -9,4 +9,4 @@
 ## Nice to know
 [Markdown](https://www.markdownguide.org/basic-syntax/)
 
-[JSON](https://developer.mozilla.org/de/docs/Learn/JavaScript/Objects/JSON)
+[JSON](https://developer.mozilla.org/de/docs/Learn/JavaScript/Objects/JSON#json_struktur)
