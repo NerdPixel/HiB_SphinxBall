@@ -1,6 +1,6 @@
-#Biased Sphinx-Ball
+# Biased Sphinx-Ball
 
-##How to Vosk-Model
+## How to Vosk-Model
 1. [Hier](https://alphacephei.com/vosk/models) `vosk-model-de-x.xx` runterladen
 2. entpacken & Ordner umbenennen in `model`
 3. `model` in HiB_SphinxBall verschieben
