@@ -35,6 +35,7 @@ def test_gyro():
     for i in range(10):
         accelerometer_data = sensor.get_accel_data()
         logging.info(accelerometer_data)
+        time.sleep(0.2)
 
 if __name__ == '__main__':
     logging.basicConfig(filename='test_station.log', level=logging.INFO)
