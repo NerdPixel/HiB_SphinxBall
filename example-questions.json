@@ -1,60 +1,72 @@
 [
   {
+    "id": 0,
     "frage": "Frage 1",
     "value": 1,
     "guteAntwort": "ja"
   },
   {
+    "id": 1,
     "frage": "Frage 2",
     "value": 2,
     "guteAntwort": "ja"
   },
   {
+    "id": 2,
     "frage": "Frage 3",
     "value": 3,
     "guteAntwort": "nein"
   },
   {
+    "id": 3,
     "frage": "Frage 4",
     "value": 3,
     "guteAntwort": "nein"
   },
   {
+    "id": 4,
     "frage": "Frage 5",
     "value": 3,
     "guteAntwort": "ja"
   },
   {
+    "id": 5,
     "frage": "Frage 6",
     "value": 1,
     "guteAntwort": "nein"
   },
   {
+    "id": 6,
     "frage": "Frage 7",
     "value": 3,
     "guteAntwort": "nein"
   },
   {
+    "id": 7,
     "frage": "Frage 8",
     "value": 3,
     "guteAntwort": "nein"
   },
   {
+    "id": 8,
     "frage": "Frage 9",
     "value": 2,
     "guteAntwort": "nein"
   },
   {
+    "id": 9,
     "frage": "Frage 10",
     "value": 1,
     "guteAntwort": "ja"
   },
   {
+    "id": 10,
     "frage": "Frage 11",
     "value": 1,
     "guteAntwort": "nein"
   },
   {
+    "id": 11,
     "frage": "Frage 12",
     "value": 3,
     "guteAntwort": "ja"
