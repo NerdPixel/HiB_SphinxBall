@@ -16,19 +16,7 @@ def test_vibration(vibrations):
 
 
 def test_sound(sound):
-    ADS1115 = Adafruit_ADS1x15.ADS1115()
-    GAIN = 1
-    print('MAX9814 Microphone Module test script')
-    print('[Press CTRL + C to end the script!]')
-    try:
-        while True:
-            analog = ADS1115.read_adc(0, gain=GAIN)
-    print('Analog: {}'.format(analog))
-    time.sleep(0.002)
-    except KeyboardInterrupt:
-        print('\nScript end!')
-    finally:
-        GPIO.cleanup()
+    pass
 
 def test_gyro():
     sensor = mpu6050(0x68)
