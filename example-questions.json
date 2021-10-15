@@ -1,0 +1,62 @@
+[
+  {
+    "frage": "Frage 1",
+    "value": 1,
+    "guteAntwort": "ja"
+  },
+  {
+    "frage": "Frage 2",
+    "value": 2,
+    "guteAntwort": "ja"
+  },
+  {
+    "frage": "Frage 3",
+    "value": 3,
+    "guteAntwort": "nein"
+  },
+  {
+    "frage": "Frage 4",
+    "value": 3,
+    "guteAntwort": "nein"
+  },
+  {
+    "frage": "Frage 5",
+    "value": 3,
+    "guteAntwort": "ja"
+  },
+  {
+    "frage": "Frage 6",
+    "value": 1,
+    "guteAntwort": "nein"
+  },
+  {
+    "frage": "Frage 7",
+    "value": 3,
+    "guteAntwort": "nein"
+  },
+  {
+    "frage": "Frage 8",
+    "value": 3,
+    "guteAntwort": "nein"
+  },
+  {
+    "frage": "Frage 9",
+    "value": 2,
+    "guteAntwort": "nein"
+  },
+  {
+    "frage": "Frage 10",
+    "value": 1,
+    "guteAntwort": "ja"
+  },
+  {
+    "frage": "Frage 11",
+    "value": 1,
+    "guteAntwort": "nein"
+  },
+  {
+    "frage": "Frage 12",
+    "value": 3,
+    "guteAntwort": "ja"
+  }
+]

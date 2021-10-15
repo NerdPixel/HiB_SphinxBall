@@ -8,6 +8,8 @@ import vosk
 import sys
 import logging
 import pyttsx3
+import json
+from random import randrange
 
 q = queue.Queue()
 synthesizer = pyttsx3.init()
@@ -21,7 +23,8 @@ def callback(indata, frames, time, status):
 
 
 def choose_random_question():
-    return "Hallo wie gehts dir?"
+    data = json.load(open('example-questions.json'))
+    return data[randrange(len(data))]["frage"]
 
 
 def ask_question():
