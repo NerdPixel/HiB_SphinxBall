@@ -17,8 +17,10 @@ def test_vibration(vibrations):
 
 def test_sound(sound):
     for i in range(10):
+        print("test")
         input = GPIO.input(sound)
         logging.info(input)
+        time.sleep(0.1)
 
 
 if __name__ == '__main__':
@@ -27,5 +29,5 @@ if __name__ == '__main__':
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(vibrations, GPIO.OUT)
     GPIO.setup(sound, GPIO.IN)
-
+    test_vibration(vibrations)
     test_sound(sound)
