@@ -2,7 +2,6 @@ import logging
 import time
 
 from mpu6050 import mpu6050
-import Adafruit_ADS1x15
 from time import sleep
 
 import RPi.GPIO as GPIO
