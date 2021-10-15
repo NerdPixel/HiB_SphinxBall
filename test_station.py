@@ -3,6 +3,8 @@ import time
 
 from mpu6050 import mpu6050
 import Adafruit_ADS1x15
+from time import sleep
+
 import RPi.GPIO as GPIO
 
 
@@ -18,12 +20,28 @@ def test_vibration(vibrations):
 def test_sound(sound):
     pass
 
+
 def test_gyro():
     sensor = mpu6050(0x68)
-    for i in range(10):
-        accelerometer_data = sensor.get_accel_data()
-        logging.info(accelerometer_data)
-        time.sleep(0.2)
+
+    for i range(10):
+        accel_data = sensor.get_accel_data()
+        gyro_data = sensor.get_gyro_data()
+        temp = sensor.get_temp()
+
+        print("Accelerometer data")
+        print("x: " + str(accel_data['x']))
+        print("y: " + str(accel_data['y']))
+        print("z: " + str(accel_data['z']))
+
+        print("Gyroscope data")
+        print("x: " + str(gyro_data['x']))
+        print("y: " + str(gyro_data['y']))
+        print("z: " + str(gyro_data['z']))
+
+        print("Temp: " + str(temp) + " C")
+        sleep(0.5)
+
 
 if __name__ == '__main__':
     logging.basicConfig(filename='test_station.log', level=logging.INFO)
@@ -34,8 +52,7 @@ if __name__ == '__main__':
     GPIO.setup(vibrations, GPIO.OUT)
     GPIO.setup(sound, GPIO.IN)
 
-    #test_vibration(vibrations)
-    #test_sound(sound)
+    # test_vibration(vibrations)
+    # test_sound(sound)
     test_gyro()
     GPIO.cleanup()
-
