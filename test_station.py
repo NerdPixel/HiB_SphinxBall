@@ -24,7 +24,7 @@ def test_sound(sound):
 
 
 if __name__ == '__main__':
-    logging.basicConfig(filename='test_station_log', level=logging.INFO)
+    logging.basicConfig(filename='test_station.log', level=logging.INFO)
     vibrations = 37
     sound = 15
     GPIO.setmode(GPIO.BOARD)
