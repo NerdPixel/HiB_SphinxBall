@@ -13,10 +13,12 @@ def choose_random_question():
 
 def gyro_changed():
     sensor = mpu6050(0x68, bus=4)
-    accel_data = sensor.get_accel_data()
-    gyro_data = sensor.get_gyro_data()
-    temp = sensor.get_temp()
-
+    try:
+        accel_data = sensor.get_accel_data()
+        gyro_data = sensor.get_gyro_data()
+        temp = sensor.get_temp()
+    except Exception as e:
+        logging.error("Gyro wrong: "+e)
     print("Accelerometer data")
     print("x: " + str(accel_data['x']))
     print("y: " + str(accel_data['y']))
