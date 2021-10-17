@@ -44,5 +44,5 @@ def start_loop():
 
 
 if __name__ == '__main__':
-    logging.basicConfig(filename="sphinxBall.log", encoding='utf-8', level=logging.DEBUG)
+    logging.basicConfig(filename="sphinxBall.log", level=logging.DEBUG)
     start_loop()
