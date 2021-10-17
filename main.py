@@ -1,25 +1,9 @@
 #!/usr/bin/env python3
-
-import argparse
-import os
-import queue
-import sounddevice as sd
-import vosk
-import sys
+import time
 import logging
-import pyttsx3
 import json
 from random import randrange
-
-q = queue.Queue()
-synthesizer = pyttsx3.init()
-
-
-def callback(indata, frames, time, status):
-    """This is called (from a separate thread) for each audio block."""
-    if status:
-        print(status, file=sys.stderr)
-    q.put(bytes(indata))
+from mpu6050 import mpu6050
 
 
 def choose_random_question():
@@ -27,52 +11,38 @@ def choose_random_question():
     return data[randrange(len(data))]["frage"]
 
 
-def ask_question():
-    synthesizer.say(choose_random_question())
-    logging.debug("question: " + choose_random_question())
-    synthesizer.say(choose_random_question())
-    synthesizer.runAndWait()
-    synthesizer.stop()
-    return 0
+def gyro_changed():
+    sensor = mpu6050(0x68, bus=4)
+    accel_data = sensor.get_accel_data()
+    gyro_data = sensor.get_gyro_data()
+    temp = sensor.get_temp()
+
+    print("Accelerometer data")
+    print("x: " + str(accel_data['x']))
+    print("y: " + str(accel_data['y']))
+    print("z: " + str(accel_data['z']))
+
+    print("Gyroscope data")
+    print("x: " + str(gyro_data['x']))
+    print("y: " + str(gyro_data['y']))
+    print("z: " + str(gyro_data['z']))
+
+    print("Temp: " + str(temp) + " C")
+
+
+def display_question(question):
+    pass
 
 
 def start_loop():
-    input_device = "hw:1,0"
-    try:
-        device_info = sd.query_devices(input_device, 'input')
-        samplerate = int(device_info['default_samplerate'])
-        model = vosk.Model("model")
-
-        with sd.RawInputStream(samplerate=samplerate, blocksize=8000, device=input_device, dtype='int16',
-                               channels=1, callback=callback):
-            rec = vosk.KaldiRecognizer(model, samplerate)
-            while True:
-                data = q.get()
-                if rec.AcceptWaveform(data):
-                    result = rec.Result()
-                    logging.debug(result)
-                    if "frage" in result:
-                        ask_question()
-
-    except KeyboardInterrupt:
-        logging.info('\nDone')
-        sys.exit(0)
-    except Exception as e:
-        logging.error(type(e).__name__ + ': ' + str(e))
-        sys.exit(0)
+    while True:
+        if gyro_changed():
+            question = choose_random_question()
+            logging.info(question)
+            display_question(question)
+        time.sleep(1)
 
 
 if __name__ == '__main__':
-    engine = pyttsx3.init("espeak")
-    voices = engine.getProperty('voices')
-    engine.setProperty('voice', voices[11].id)  # English
-
-
-    def speak(text):
-        engine.say(text)
-        engine.runAndWait()
-
-
-    speak("Hello World and this is a test.")
-    logging.basicConfig(encoding='utf-8', level=logging.DEBUG)
-    # start_loop()
+    logging.basicConfig(filename="sphinxBall.log", encoding='utf-8', level=logging.DEBUG)
+    start_loop()
