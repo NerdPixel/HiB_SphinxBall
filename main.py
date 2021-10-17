@@ -11,14 +11,13 @@ def choose_random_question():
     return data[randrange(len(data))]["frage"]
 
 
-def gyro_changed():
-    sensor = mpu6050(0x68, bus=4)
+def gyro_changed(sensor):
     try:
         accel_data = sensor.get_accel_data()
         gyro_data = sensor.get_gyro_data()
         temp = sensor.get_temp()
     except Exception as e:
-        logging.error("Gyro wrong: "+e)
+        logging.error("Gyro wrong: " + e)
         return False
 
     print("Accelerometer data")
@@ -34,13 +33,15 @@ def gyro_changed():
     print("Temp: " + str(temp) + " C")
     return True
 
+
 def display_question(question):
     pass
 
 
 def start_loop():
+    sensor = mpu6050(0x68, bus=4)
     while True:
-        if gyro_changed():
+        if gyro_changed(sensor):
             question = choose_random_question()
             logging.info(question)
             display_question(question)
