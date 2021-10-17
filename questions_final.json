@@ -2,189 +2,156 @@
 	{
 		"frage": "Sind in deinem Entwickler*innen-Team Menschen verschiedenen Geschlechts?",
 		"value": 1,
-		"guteAntwort": "ja",
-
+		"guteAntwort": "ja"
 	},
 	{
 		"frage": "Sind in deinem Entwickler*innen-Team Menschen verschiedener Herkunft? ",
 		"value": 1,
-		"guteAntwort": "ja",
-
+		"guteAntwort": "ja"
 	},
 	{
 		"frage": "Sind in deinem Entwickler*innen-Team be_hinderte Menschen?",
 		"value": 1,
-		"guteAntwort": "ja",
-
+		"guteAntwort": "ja"
 	},
 	{
 		"frage": "Benutzt du in deinem Code Variablen oder Namen, die bestimmte Menschen beleidigen?",
 		"value": 1,
-		"guteAntwort": "nein",
-
+		"guteAntwort": "nein"
 	},
 	{
 		"frage": "Verwendest du in deinem Design pink, rosa oder blau, um bestimmte Nutzer*innengruppen anzusprechen? ",
 		"value": 1,
-		"guteAntwort": "nein",
-
+		"guteAntwort": "nein"
 	},
-{
+  {
 		"frage": "Sieht dein fertiges Produkt aus, wie ein Stück Technik aus den Neunzigern? ",
 		"value": 1,
-		"guteAntwort": "nein",
-
+		"guteAntwort": "nein"
 	},
-{
+  {
 		"frage": "Benutzt du in deinem Programm Darstellungen von gutaussehenden oder freizügigen Menschen, um mehr Aufmerksamkeit zu bekommen? ",
 		"value": 1,
-		"guteAntwort": "nein",
-
+		"guteAntwort": "nein"
 	},
-{
+  {
 		"frage": "Beinhaltet dein Produkt Geschlechtszuschreibungen oder eine Geschlechtsauswahl, die lediglich männlich oder weiblich zulässt? ",
 		"value": 1,
-		"guteAntwort": "nein",
-
+		"guteAntwort": "nein"
 	},
-{
+  {
 		"frage": "Ist die positive Nutzer*innen-Experience abhängig davon, welches Geschlecht ich habe? ",
 		"value": 1,
-		"guteAntwort": "nein",
-
+		"guteAntwort": "nein"
 	},
-{
+  {
 		"frage": "Ist dein Produkt von verschiedenen Personen nutzbar, egal wie ihre Körper beschaffen sind? ",
 		"value": 1,
-		"guteAntwort": "ja",
-
+		"guteAntwort": "ja"
 	},
-{
+  {
 		"frage": "Hast du dir Feedback zu deinem Produkt von mindestens drei Frauen eingeholt? ",
 		"value": 1,
-		"guteAntwort": "ja",
-
+		"guteAntwort": "ja"
 	},
-{
+  {
 		"frage": "Hast du dir Feedback zu deinem Produkt von queeren Menschen eingeholt? ",
 		"value": 1,
-		"guteAntwort": "ja",
-
+		"guteAntwort": "ja"
 	},
-{
+  {
 		"frage": "Hast du dir Feedback zu deinem Produkt von migrantisierten Menschen und People of Colour eingeholt? ",
 		"value": 1,
-		"guteAntwort": "ja",
-
+		"guteAntwort": "ja"
 	},
-{
+  {
 		"frage": "Hast du für die Sprachausgabe eine weibliche Stimme ausgewählt, weil du gerne Serviceorientierung und positive Stimmung vermitteln möchtest? ",
 		"value": 1,
-		"guteAntwort": "nein",
-
+		"guteAntwort": "nein"
 	},
-{
+  {
 		"frage": "Benutzt du in deinem Code Variablen oder Namen, die Stereotype abbilden? ",
 		"value": 2,
-		"guteAntwort": "nein",
-
+		"guteAntwort": "nein"
 	},
-{
+  {
 		"frage": "Benutzt in deinem Programm Witze oder Namen, die sich über Frauen lustig machen? ",
 		"value": 2,
-		"guteAntwort": "nein",
-
+		"guteAntwort": "nein"
 	},
-{
+  {
 		"frage": "Benutzt du in deinem Programm Witze, die sich über Queere Menschen lustig machen?",
 		"value": 2,
-		"guteAntwort": "nein",
-
+		"guteAntwort": "nein"
 	},
-{
+  {
 		"frage": "Ist das Programm auch von Menschen benutzbar, die blind sind?",
 		"value": 2,
-		"guteAntwort": "ja",
-
+		"guteAntwort": "ja"
 	},
-{
+  {
 		"frage": "Ist das Programm auch von Menschen benutzbar, die auf einfache Sprache angewiesen sind?",
 		"value": 2,
-		"guteAntwort": "ja",
-
+		"guteAntwort": "ja"
 	},
-{
+  {
 		"frage": "Gibt es für dein Produkt eine Anleitung in einfacher Sprache? ",
 		"value": 2,
-		"guteAntwort": "ja",
-
+		"guteAntwort": "ja"
 	},
-{
+  {
 		"frage": "Ist das Programm auch von Menschen benutzbar, die taub sind?",
 		"value": 2,
-		"guteAntwort": "ja",
-
+		"guteAntwort": "ja"
 	},
-{
+  {
 		"frage": "Ist dein Programm dafür bestimmt, einen vornehmlich männlichen Benutzer anzusprechen?",
 		"value": 2,
-		"guteAntwort": "nein",
-
+		"guteAntwort": "nein"
 	},
-{
+  {
 		"frage": "Verwendest du Entwicklungen von anderen Menschen, insbesondere Frauen und sprichst Ihnen dafür in der Anleitung Anerkennung aus?",
 		"value": 2,
-		"guteAntwort": "ja",
-
+		"guteAntwort": "ja"
 	},
-{
+  {
 		"frage": "Hast du in der konzeptionellen Vorarbeit Quellen beachtet, die von Frauen, Queeren Menschen oder People of Colour kommen?",
 		"value": 2,
-		"guteAntwort": "ja",
-
+		"guteAntwort": "ja"
 	},
-{
+  {
 		"frage": "Benutzt du Libaries oder Arbeit von Projekten, die sich eindeutig für inklusive und diverse Arbeit einsetzen?",
 		"value": 3,
-		"guteAntwort": "ja",
-
+		"guteAntwort": "ja"
 	},
-{
+  {
 		"frage": "Benutzt du Libaries oder Arbeit von Projekten, die schon einmal für Sexismus, Rassismus oder andere Diskriminierungsformen aufgefallen sind? ",
 		"value": 3,
-		"guteAntwort": "nein",
-
+		"guteAntwort": "nein"
 	},
-{
+  {
 		"frage": "Hast du daran gedacht, wie dein Produkt missbraucht werden könnte? ",
 		"value": 3,
-		"guteAntwort": "ja",
-
+		"guteAntwort": "ja"
 	},
-{
+  {
 		"frage": "Kann dein Produkt so gebraucht werden, dass es für Frauen und Non-Binäre Menschen negative Konsequenzen hat?",
 		"value": 3,
-		"guteAntwort": "nein",
-
+		"guteAntwort": "nein"
 	},
-{
+  {
 		"frage": "Kann dein Produkt so gebraucht werden, dass es für queere Menschen negative Konsequenzen hat?",
 		"value": 3,
-		"guteAntwort": "nein",
-
+		"guteAntwort": "nein"
 	},
-{
+  {
 		"frage": "Kann dein Produkt so gebraucht werden, dass es für , dass es für migrantisierte Menschen oder People of Colour negative Auswirkungen hat?",
 		"value": 3,
-		"guteAntwort": "nein",
-
+		"guteAntwort": "nein"
 	},
-{
+  {
 		"frage": "Hast du in deinem Entwickler*innen-Team darüber gesprochen, wie eure Herkunft, Bildung oder Geschlecht die Entwicklung beeinflusst?",
 		"value": 3,
-		"guteAntwort": "ja",
-
-	},
-
-
+		"guteAntwort": "ja"
+	}
 ]
