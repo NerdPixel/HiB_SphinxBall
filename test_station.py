@@ -45,7 +45,7 @@ def test_gyro():
 
 def test_display():
     setRGB(0, 255, 0)
-    setText("Grove - LCD RGB Backlight")
+    setText("Halli Hallo!!!")
     time.sleep(2)
 
 
@@ -60,6 +60,6 @@ if __name__ == '__main__':
 
     # test_vibration(vibrations)
     # test_sound(sound)
-    # test_gyro()
+    test_gyro()
     test_display()
     GPIO.cleanup()
