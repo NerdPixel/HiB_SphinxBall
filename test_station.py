@@ -3,6 +3,7 @@ import time
 
 from mpu6050 import mpu6050
 from time import sleep
+from grove_rgb_lcd import *
 
 import RPi.GPIO as GPIO
 
@@ -42,6 +43,12 @@ def test_gyro():
         sleep(1)
 
 
+def test_display():
+    setRGB(0, 255, 0)
+    setText("Grove - LCD RGB Backlight")
+    time.sleep(2)
+
+
 if __name__ == '__main__':
     logging.basicConfig(filename='test_station.log', level=logging.INFO)
     vibrations = 37
@@ -53,5 +60,6 @@ if __name__ == '__main__':
 
     # test_vibration(vibrations)
     # test_sound(sound)
-    test_gyro()
+    # test_gyro()
+    test_display()
     GPIO.cleanup()
