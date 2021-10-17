@@ -22,8 +22,7 @@ def test_sound(sound):
 
 
 def test_gyro():
-    sensor = mpu6050(0x68)
-
+    sensor = mpu6050(0x68, bus=4)
     for i in range(10):
         accel_data = sensor.get_accel_data()
         gyro_data = sensor.get_gyro_data()
