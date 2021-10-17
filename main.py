@@ -19,6 +19,8 @@ def gyro_changed():
         temp = sensor.get_temp()
     except Exception as e:
         logging.error("Gyro wrong: "+e)
+        return False
+
     print("Accelerometer data")
     print("x: " + str(accel_data['x']))
     print("y: " + str(accel_data['y']))
@@ -30,7 +32,7 @@ def gyro_changed():
     print("z: " + str(gyro_data['z']))
 
     print("Temp: " + str(temp) + " C")
-
+    return True
 
 def display_question(question):
     pass
