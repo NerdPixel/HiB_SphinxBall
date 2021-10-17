@@ -16,8 +16,8 @@ def gyro_changed(sensor):
         accel_data = sensor.get_accel_data()
         gyro_data = sensor.get_gyro_data()
         temp = sensor.get_temp()
-    except Exception as e:
-        logging.error("Gyro wrong: " + e)
+    except IOError as ioe:
+        logging.error("Gyro wrong: " + ioe)
         return False
 
     print("Accelerometer data")
