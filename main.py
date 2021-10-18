@@ -5,7 +5,9 @@ import json
 from random import randrange
 from mpu6050 import mpu6050
 import LCD as LCD
-import numpy as np
+import board
+import adafruit_mpu6050
+
 
 sensor = mpu6050(0x68, bus=4)
 old_accel_data = sensor.get_accel_data(g=True)
@@ -17,17 +19,16 @@ def choose_random_question():
 
 
 def gyro_changed():
-    global sensor
-    try:
-        accel_data = sensor.get_accel_data(g=True)
-    except IOError as ioe:
-        logging.error("Gyro wrong")
-        logging.debug(ioe)
-        return False
-    global old_accel_data
-    is_changed = np.allclose(np.array(list(old_accel_data.values()), dtype=float), np.array(list(accel_data.values()), dtype=float))
-    old_accel_data = accel_data
-    return not is_changed
+
+    i2c = board.I2C()  # uses board.SCL and board.SDA
+    mpu = adafruit_mpu6050.MPU6050(i2c)
+
+    while True:
+        print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (mpu.acceleration))
+        print("Gyro X:%.2f, Y: %.2f, Z: %.2f rad/s" % (mpu.gyro))
+        print("Temperature: %.2f C" % mpu.temperature)
+        print("")
+        time.sleep(1)
 
 
 def display_question(question):
