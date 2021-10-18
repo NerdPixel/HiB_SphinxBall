@@ -14,6 +14,9 @@ from random import randrange
 q = queue.Queue()
 synthesizer = pyttsx3.init()
 
+#specify which file to load questions from, e.g. 'example-questions.json'
+question_file = 'questions_final.json'
+
 
 def callback(indata, frames, time, status):
     """This is called (from a separate thread) for each audio block."""
@@ -21,9 +24,10 @@ def callback(indata, frames, time, status):
         print(status, file=sys.stderr)
     q.put(bytes(indata))
 
-
+# loads JSON file with questions as specified in question_file variable
+# selects random question from the file and outputs its question string
 def choose_random_question():
-    data = json.load(open('example-questions.json'))
+    data = json.load(open(question_file))
     return data[randrange(len(data))]["frage"]
 
 
