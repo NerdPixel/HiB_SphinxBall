@@ -4,6 +4,7 @@ import logging
 import json
 from random import randrange
 from mpu6050 import mpu6050
+import LCD as LCD
 
 
 def choose_random_question():
@@ -26,8 +27,8 @@ def gyro_changed(sensor):
 
 
 def display_question(question):
-    setRGB(0, 255, 0)
-    setText(question)
+    LCD.setRGB(0, 255, 0)
+    LCD.setText(question)
 
 
 def start_loop():
