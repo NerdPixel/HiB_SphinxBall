@@ -17,6 +17,7 @@ def choose_random_question():
 
 
 def gyro_changed():
+    global sensor
     try:
         accel_data = sensor.get_accel_data(g=True)
     except IOError as ioe:
