@@ -17,6 +17,7 @@ def gyro_changed(sensor):
         accel_data = sensor.get_accel_data(g=True)
     except IOError as ioe:
         logging.error("Gyro wrong")
+        logging.debug(ioe)
         return False
     print("Accelerometer data")
     print("x: " + str(accel_data['x']))
@@ -42,5 +43,5 @@ def start_loop():
 
 
 if __name__ == '__main__':
-    logging.basicConfig(filename="sphinxBall.log", level=logging.DEBUG)
+    logging.basicConfig(level=logging.DEBUG)
     start_loop()
