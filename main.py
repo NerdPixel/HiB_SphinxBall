@@ -13,29 +13,21 @@ def choose_random_question():
 
 def gyro_changed(sensor):
     try:
-        accel_data = sensor.get_accel_data()
-        gyro_data = sensor.get_gyro_data()
-        temp = sensor.get_temp()
+        accel_data = sensor.get_accel_data(g=True)
     except IOError as ioe:
         logging.error("Gyro wrong")
         return False
-
     print("Accelerometer data")
     print("x: " + str(accel_data['x']))
     print("y: " + str(accel_data['y']))
     print("z: " + str(accel_data['z']))
 
-    print("Gyroscope data")
-    print("x: " + str(gyro_data['x']))
-    print("y: " + str(gyro_data['y']))
-    print("z: " + str(gyro_data['z']))
-
-    print("Temp: " + str(temp) + " C")
     return True
 
 
 def display_question(question):
-    pass
+    setRGB(0, 255, 0)
+    setText(question)
 
 
 def start_loop():
@@ -45,7 +37,7 @@ def start_loop():
             question = choose_random_question()
             logging.info(question)
             display_question(question)
-        time.sleep(1)
+        time.sleep(3)
 
 
 if __name__ == '__main__':
