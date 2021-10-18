@@ -6,6 +6,7 @@ from random import randrange
 import LCD as LCD
 import board
 import adafruit_mpu6050
+from adafruit_extended_bus import ExtendedI2C as I2C
 
 
 def choose_random_question():
@@ -14,13 +15,8 @@ def choose_random_question():
 
 
 def gyro_changed():
-
-    board.SCL = 17
-    board.SDA = 27
-    i2c = board.I2C()  # uses board.SCL and board.SDA
-
+    i2c = I2C(4)  # Device is /dev/i2c-4
     mpu = adafruit_mpu6050.MPU6050(i2c)
-
     while True:
         print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (mpu.acceleration))
         print("Gyro X:%.2f, Y: %.2f, Z: %.2f rad/s" % (mpu.gyro))
