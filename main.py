@@ -36,7 +36,7 @@ def display_question(question):
 
 def start_loop():
     while True:
-        if gyro_changed(sensor):
+        if gyro_changed():
             question = choose_random_question()
             logging.info(question)
             display_question(question)
