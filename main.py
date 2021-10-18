@@ -5,6 +5,10 @@ import json
 from random import randrange
 from mpu6050 import mpu6050
 import LCD as LCD
+import numpy as np
+
+sensor = mpu6050(0x68, bus=4)
+old_accel_data = sensor.get_accel_data(g=True)
 
 
 def choose_random_question():
@@ -12,19 +16,17 @@ def choose_random_question():
     return data[randrange(len(data))]["frage"]
 
 
-def gyro_changed(sensor):
+def gyro_changed():
     try:
         accel_data = sensor.get_accel_data(g=True)
     except IOError as ioe:
         logging.error("Gyro wrong")
         logging.debug(ioe)
         return False
-    print("Accelerometer data")
-    print("x: " + str(accel_data['x']))
-    print("y: " + str(accel_data['y']))
-    print("z: " + str(accel_data['z']))
-
-    return True
+    global old_accel_data
+    is_changed = np.allclose(old_accel_data, accel_data)
+    old_accel_data = accel_data
+    return is_changed
 
 
 def display_question(question):
@@ -33,7 +35,6 @@ def display_question(question):
 
 
 def start_loop():
-    sensor = mpu6050(0x68, bus=4)
     while True:
         if gyro_changed(sensor):
             question = choose_random_question()
