@@ -3,14 +3,9 @@ import time
 import logging
 import json
 from random import randrange
-from mpu6050 import mpu6050
 import LCD as LCD
 import board
 import adafruit_mpu6050
-
-
-sensor = mpu6050(0x68, bus=4)
-old_accel_data = sensor.get_accel_data(g=True)
 
 
 def choose_random_question():
