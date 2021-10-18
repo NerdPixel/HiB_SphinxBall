@@ -15,8 +15,11 @@ def choose_random_question():
 
 def gyro_changed():
 
+    board.SCL = 17
+    board.SDA = 27
     i2c = board.I2C()  # uses board.SCL and board.SDA
-    mpu = adafruit_mpu6050.MPU6050(4)
+
+    mpu = adafruit_mpu6050.MPU6050(i2c)
 
     while True:
         print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (mpu.acceleration))
