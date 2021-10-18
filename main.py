@@ -24,10 +24,9 @@ def gyro_changed():
         logging.debug(ioe)
         return False
     global old_accel_data
-    print(old_accel_data)
-    #is_changed = np.allclose(np.array(old_accel_data, dtype=float), np.array(accel_data, dtype=float))
+    is_changed = np.allclose(np.array(list(old_accel_data.items()), dtype=float), np.array(list(accel_data.items()), dtype=float))
     old_accel_data = accel_data
-    return True
+    return is_changed
 
 
 def display_question(question):
