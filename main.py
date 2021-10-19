@@ -3,9 +3,10 @@ import time
 import logging
 import json
 from random import randrange
-import LCD as LCD
 import smbus
 import numpy as np
+from RPLCD.i2c import CharLCD
+
 
 # some MPU6050 Registers and their Address
 PWR_MGMT_1 = 0x6B
@@ -20,12 +21,12 @@ GYRO_XOUT_H = 0x43
 GYRO_YOUT_H = 0x45
 GYRO_ZOUT_H = 0x47
 
-#specify which file to load questions from, e.g. 'example-questions.json'
+# specify which file to load questions from, e.g. 'example-questions.json'
 question_file = 'questions_final.json'
-
 
 bus = smbus.SMBus(4)  # set bus for I2C
 Device_Address = 0x68  # MPU6050 device address
+
 
 # loads JSON file with questions as specified in question_file variable
 # selects random question from the file and outputs its question string
@@ -91,9 +92,25 @@ def gyro_changed():
     return test
 
 
+
+lcd = CharLCD('PCF8574', 0x27)
+
+
+def scroll_text(text, digits, lcd):
+    for shifts in range(1, digits + 1, 1):
+        lcd.clear()
+        lcd.cursor_pos = (0, (digits - shifts))
+        lcd.write_string(text[:shifts])
+        time.sleep(0.4)
+
+    for outshift in range(1, len(text) + 1, 1):
+        lcd.clear()
+        lcd.cursor_pos = (0, (digits - shifts))
+        lcd.write_string(text[outshift:len(text)])
+        time.sleep(0.4)
+
 def display_question(question):
-    LCD.setRGB(0, 255, 0)
-    LCD.setText(question)
+    scroll_text(question, 16, lcd)
 
 
 def start_loop():
