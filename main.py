@@ -3,10 +3,9 @@ import time
 import logging
 import json
 from random import randrange
+import LCD as LCD
 import smbus
 import numpy as np
-from RPLCD.i2c import CharLCD
-
 
 # some MPU6050 Registers and their Address
 PWR_MGMT_1 = 0x6B
@@ -92,25 +91,14 @@ def gyro_changed():
     return test
 
 
+def chunker(seq, size):
+    return (seq[pos:pos + size] for pos in range(0, len(seq), size))
 
-lcd = CharLCD('PCF8574', 0x27)
-
-
-def scroll_text(text, digits, lcd):
-    for shifts in range(1, digits + 1, 1):
-        lcd.clear()
-        lcd.cursor_pos = (0, (digits - shifts))
-        lcd.write_string(text[:shifts])
-        time.sleep(0.4)
-
-    for outshift in range(1, len(text) + 1, 1):
-        lcd.clear()
-        lcd.cursor_pos = (0, (digits - shifts))
-        lcd.write_string(text[outshift:len(text)])
-        time.sleep(0.4)
 
 def display_question(question):
-    scroll_text(question, 16, lcd)
+    LCD.setRGB(0, 255, 0)
+    for chunk in chunker(question, 16):
+        LCD.setText(chunk)
 
 
 def start_loop():
