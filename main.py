@@ -1,28 +1,31 @@
 #!/usr/bin/env python3
-
-import argparse
-import os
-import queue
-import sounddevice as sd
-import vosk
-import sys
+import time
 import logging
-import pyttsx3
 import json
 from random import randrange
+import LCD as LCD
+import smbus
+import numpy as np
 
-q = queue.Queue()
-synthesizer = pyttsx3.init()
+# some MPU6050 Registers and their Address
+PWR_MGMT_1 = 0x6B
+SMPLRT_DIV = 0x19
+CONFIG = 0x1A
+GYRO_CONFIG = 0x1B
+INT_ENABLE = 0x38
+ACCEL_XOUT_H = 0x3B
+ACCEL_YOUT_H = 0x3D
+ACCEL_ZOUT_H = 0x3F
+GYRO_XOUT_H = 0x43
+GYRO_YOUT_H = 0x45
+GYRO_ZOUT_H = 0x47
 
 #specify which file to load questions from, e.g. 'example-questions.json'
 question_file = 'questions_final.json'
 
 
-def callback(indata, frames, time, status):
-    """This is called (from a separate thread) for each audio block."""
-    if status:
-        print(status, file=sys.stderr)
-    q.put(bytes(indata))
+bus = smbus.SMBus(4)  # set bus for I2C
+Device_Address = 0x68  # MPU6050 device address
 
 # loads JSON file with questions as specified in question_file variable
 # selects random question from the file and outputs its question string
@@ -31,52 +34,78 @@ def choose_random_question():
     return data[randrange(len(data))]["frage"]
 
 
-def ask_question():
-    synthesizer.say(choose_random_question())
-    logging.debug("question: " + choose_random_question())
-    synthesizer.say(choose_random_question())
-    synthesizer.runAndWait()
-    synthesizer.stop()
-    return 0
+def MPU_Init():
+    # write to sample rate register
+    bus.write_byte_data(Device_Address, SMPLRT_DIV, 7)
+
+    # Write to power management register
+    bus.write_byte_data(Device_Address, PWR_MGMT_1, 1)
+
+    # Write to Configuration register
+    bus.write_byte_data(Device_Address, CONFIG, 0)
+
+    # Write to Gyro configuration register
+    bus.write_byte_data(Device_Address, GYRO_CONFIG, 24)
+
+    # Write to interrupt enable register
+    bus.write_byte_data(Device_Address, INT_ENABLE, 1)
+
+
+def read_raw_data(addr):
+    # Accelero and Gyro value are 16-bit
+    high = bus.read_byte_data(Device_Address, addr)
+    low = bus.read_byte_data(Device_Address, addr + 1)
+
+    # concatenate higher and lower value
+    value = ((high << 8) | low)
+
+    # to get signed value from mpu6050
+    if (value > 32768):
+        value = value - 65536
+    return value
+
+
+def get_gyro_data():
+    acc_x = read_raw_data(ACCEL_XOUT_H)
+    acc_y = read_raw_data(ACCEL_YOUT_H)
+    acc_z = read_raw_data(ACCEL_ZOUT_H)
+
+    Ax = acc_x / 16384.0
+    Ay = acc_y / 16384.0
+    Az = acc_z / 16384.0
+    return np.array([Ax, Ay, Az])
+
+
+gyro_rest = get_gyro_data()
+
+
+def gyro_changed():
+    logging.info("Reading Data of Gyroscope and Accelerometer")
+    new_acc_data = get_gyro_data()
+    logging.info("gyro old:")
+    logging.info(gyro_rest)
+    logging.info("gyro new:")
+    logging.info(new_acc_data)
+    test = not np.allclose(gyro_rest, new_acc_data, atol=0.3)
+    logging.info(test)
+    return test
+
+
+def display_question(question):
+    LCD.setRGB(0, 255, 0)
+    LCD.setText(question)
 
 
 def start_loop():
-    input_device = "hw:1,0"
-    try:
-        device_info = sd.query_devices(input_device, 'input')
-        samplerate = int(device_info['default_samplerate'])
-        model = vosk.Model("model")
-
-        with sd.RawInputStream(samplerate=samplerate, blocksize=8000, device=input_device, dtype='int16',
-                               channels=1, callback=callback):
-            rec = vosk.KaldiRecognizer(model, samplerate)
-            while True:
-                data = q.get()
-                if rec.AcceptWaveform(data):
-                    result = rec.Result()
-                    logging.debug(result)
-                    if "frage" in result:
-                        ask_question()
-
-    except KeyboardInterrupt:
-        logging.info('\nDone')
-        sys.exit(0)
-    except Exception as e:
-        logging.error(type(e).__name__ + ': ' + str(e))
-        sys.exit(0)
+    MPU_Init()
+    while True:
+        if gyro_changed():
+            question = choose_random_question()
+            logging.info(question)
+            display_question(question)
+        time.sleep(0.5)
 
 
 if __name__ == '__main__':
-    engine = pyttsx3.init("espeak")
-    voices = engine.getProperty('voices')
-    engine.setProperty('voice', voices[11].id)  # English
-
-
-    def speak(text):
-        engine.say(text)
-        engine.runAndWait()
-
-
-    speak("Hello World and this is a test.")
-    logging.basicConfig(encoding='utf-8', level=logging.DEBUG)
-    # start_loop()
+    logging.basicConfig(level=logging.DEBUG)
+    start_loop()
