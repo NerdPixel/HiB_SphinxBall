@@ -98,7 +98,7 @@ def start_loop():
             question = choose_random_question()
             logging.info(question)
             display_question(question)
-        time.sleep(3)
+        time.sleep(0.5)
 
 
 if __name__ == '__main__':
