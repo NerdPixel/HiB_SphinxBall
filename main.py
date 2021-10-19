@@ -61,7 +61,7 @@ def read_raw_data(addr):
 
 
 def gyro_changed():
-    gyro_rest = np.array([0.17, 0.3, 0.99])
+    gyro_rest = np.array([-0.17, -0.03, 0.99])
 
     print(" Reading Data of Gyroscope and Accelerometer")
 
@@ -74,6 +74,7 @@ def gyro_changed():
     Az = acc_z / 16384.0
     new_acc_data = np.array([Ax, Ay, Az])
     logging.info(new_acc_data)
+    logging.info(np.allclose(gyro_rest, new_acc_data))
     return np.allclose(gyro_rest, new_acc_data)
 
 
