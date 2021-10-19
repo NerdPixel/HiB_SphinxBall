@@ -77,8 +77,8 @@ gyro_rest = get_gyro_data()
 def gyro_changed():
     print(" Reading Data of Gyroscope and Accelerometer")
     new_acc_data = get_gyro_data()
-    logging.info("old data "+gyro_rest.tostring())
-    logging.info("new data "+new_acc_data.tostring())
+    logging.info(gyro_rest)
+    logging.info(new_acc_data)
     logging.info(not np.allclose(gyro_rest, new_acc_data))
     return not np.allclose(gyro_rest, new_acc_data)
 
