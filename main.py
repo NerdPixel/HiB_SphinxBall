@@ -81,7 +81,7 @@ def gyro_changed():
     logging.info(gyro_rest)
     logging.info("gyro new:")
     logging.info(new_acc_data)
-    test = not np.allclose(gyro_rest, new_acc_data, rtol=1, atol=1)
+    test = not np.allclose(gyro_rest, new_acc_data, atol=0.3)
     logging.info(test)
     return test
 
