@@ -25,7 +25,7 @@ Device_Address = 0x68  # MPU6050 device address
 
 
 def choose_random_question():
-    data = json.load(open('example-questions.json'))
+    data = json.load(open('questions_final.json'))
     return data[randrange(len(data))]["frage"]
 
 
@@ -75,7 +75,7 @@ gyro_rest = get_gyro_data()
 
 
 def gyro_changed():
-    print(" Reading Data of Gyroscope and Accelerometer")
+    logging.info("Reading Data of Gyroscope and Accelerometer")
     new_acc_data = get_gyro_data()
     logging.info("gyro old:")
     logging.info(gyro_rest)
