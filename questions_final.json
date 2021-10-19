@@ -25,27 +25,27 @@
 		"guteAntwort": "nein"
 	},
   {
-		"frage": "Sieht dein fertiges Produkt aus, wie ein Stück Technik aus den Neunzigern? ",
+		"frage": "Sieht dein fertiges Produkt aus, wie ein Stueck Technik aus den Neunzigern? ",
 		"value": 1,
 		"guteAntwort": "nein"
 	},
   {
-		"frage": "Benutzt du in deinem Programm Darstellungen von gutaussehenden oder freizügigen Menschen, um mehr Aufmerksamkeit zu bekommen? ",
+		"frage": "Benutzt du in deinem Programm Darstellungen von gutaussehenden oder freizuegigen Menschen, um mehr Aufmerksamkeit zu bekommen? ",
 		"value": 1,
 		"guteAntwort": "nein"
 	},
   {
-		"frage": "Beinhaltet dein Produkt Geschlechtszuschreibungen oder eine Geschlechtsauswahl, die lediglich männlich oder weiblich zulässt? ",
+		"frage": "Beinhaltet dein Produkt Geschlechtszuschreibungen oder eine Geschlechtsauswahl, die lediglich maennlich oder weiblich zulaesst? ",
 		"value": 1,
 		"guteAntwort": "nein"
 	},
   {
-		"frage": "Ist die positive Nutzer*innen-Experience abhängig davon, welches Geschlecht ich habe? ",
+		"frage": "Ist die positive Nutzer*innen-Experience abhaengig davon, welches Geschlecht ich habe? ",
 		"value": 1,
 		"guteAntwort": "nein"
 	},
   {
-		"frage": "Ist dein Produkt von verschiedenen Personen nutzbar, egal wie ihre Körper beschaffen sind? ",
+		"frage": "Ist dein Produkt von verschiedenen Personen nutzbar, egal wie ihre Koerper beschaffen sind? ",
 		"value": 1,
 		"guteAntwort": "ja"
 	},
@@ -65,7 +65,7 @@
 		"guteAntwort": "ja"
 	},
   {
-		"frage": "Hast du für die Sprachausgabe eine weibliche Stimme ausgewählt, weil du gerne Serviceorientierung und positive Stimmung vermitteln möchtest? ",
+		"frage": "Hast du fuer die Sprachausgabe eine weibliche Stimme ausgewaehlt, weil du gerne Serviceorientierung und positive Stimmung vermitteln moechtest? ",
 		"value": 1,
 		"guteAntwort": "nein"
 	},
@@ -75,12 +75,12 @@
 		"guteAntwort": "nein"
 	},
   {
-		"frage": "Benutzt in deinem Programm Witze oder Namen, die sich über Frauen lustig machen? ",
+		"frage": "Benutzt in deinem Programm Witze oder Namen, die sich ueber Frauen lustig machen? ",
 		"value": 2,
 		"guteAntwort": "nein"
 	},
   {
-		"frage": "Benutzt du in deinem Programm Witze, die sich über Queere Menschen lustig machen?",
+		"frage": "Benutzt du in deinem Programm Witze, die sich ueber Queere Menschen lustig machen?",
 		"value": 2,
 		"guteAntwort": "nein"
 	},
@@ -95,7 +95,7 @@
 		"guteAntwort": "ja"
 	},
   {
-		"frage": "Gibt es für dein Produkt eine Anleitung in einfacher Sprache? ",
+		"frage": "Gibt es fuer dein Produkt eine Anleitung in einfacher Sprache? ",
 		"value": 2,
 		"guteAntwort": "ja"
 	},
@@ -105,12 +105,12 @@
 		"guteAntwort": "ja"
 	},
   {
-		"frage": "Ist dein Programm dafür bestimmt, einen vornehmlich männlichen Benutzer anzusprechen?",
+		"frage": "Ist dein Programm dafuer bestimmt, einen vornehmlich maennlichen Benutzer anzusprechen?",
 		"value": 2,
 		"guteAntwort": "nein"
 	},
   {
-		"frage": "Verwendest du Entwicklungen von anderen Menschen, insbesondere Frauen und sprichst Ihnen dafür in der Anleitung Anerkennung aus?",
+		"frage": "Verwendest du Entwicklungen von anderen Menschen, insbesondere Frauen und sprichst Ihnen dafuer in der Anleitung Anerkennung aus?",
 		"value": 2,
 		"guteAntwort": "ja"
 	},
@@ -120,37 +120,37 @@
 		"guteAntwort": "ja"
 	},
   {
-		"frage": "Benutzt du Libaries oder Arbeit von Projekten, die sich eindeutig für inklusive und diverse Arbeit einsetzen?",
+		"frage": "Benutzt du Libaries oder Arbeit von Projekten, die sich eindeutig fuer inklusive und diverse Arbeit einsetzen?",
 		"value": 3,
 		"guteAntwort": "ja"
 	},
   {
-		"frage": "Benutzt du Libaries oder Arbeit von Projekten, die schon einmal für Sexismus, Rassismus oder andere Diskriminierungsformen aufgefallen sind? ",
+		"frage": "Benutzt du Libaries oder Arbeit von Projekten, die schon einmal fuer Sexismus, Rassismus oder andere Diskriminierungsformen aufgefallen sind? ",
 		"value": 3,
 		"guteAntwort": "nein"
 	},
   {
-		"frage": "Hast du daran gedacht, wie dein Produkt missbraucht werden könnte? ",
+		"frage": "Hast du daran gedacht, wie dein Produkt missbraucht werden koennte? ",
 		"value": 3,
 		"guteAntwort": "ja"
 	},
   {
-		"frage": "Kann dein Produkt so gebraucht werden, dass es für Frauen und Non-Binäre Menschen negative Konsequenzen hat?",
+		"frage": "Kann dein Produkt so gebraucht werden, dass es fuer Frauen und Non-Binaere Menschen negative Konsequenzen hat?",
 		"value": 3,
 		"guteAntwort": "nein"
 	},
   {
-		"frage": "Kann dein Produkt so gebraucht werden, dass es für queere Menschen negative Konsequenzen hat?",
+		"frage": "Kann dein Produkt so gebraucht werden, dass es fuer queere Menschen negative Konsequenzen hat?",
 		"value": 3,
 		"guteAntwort": "nein"
 	},
   {
-		"frage": "Kann dein Produkt so gebraucht werden, dass es für , dass es für migrantisierte Menschen oder People of Colour negative Auswirkungen hat?",
+		"frage": "Kann dein Produkt so gebraucht werden, dass es fuer , dass es fuer migrantisierte Menschen oder People of Colour negative Auswirkungen hat?",
 		"value": 3,
 		"guteAntwort": "nein"
 	},
   {
-		"frage": "Hast du in deinem Entwickler*innen-Team darüber gesprochen, wie eure Herkunft, Bildung oder Geschlecht die Entwicklung beeinflusst?",
+		"frage": "Hast du in deinem Entwickler*innen-Team darueber gesprochen, wie eure Herkunft, Bildung oder Geschlecht die Entwicklung beeinflusst?",
 		"value": 3,
 		"guteAntwort": "ja"
 	}
