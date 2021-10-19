@@ -20,12 +20,17 @@ GYRO_XOUT_H = 0x43
 GYRO_YOUT_H = 0x45
 GYRO_ZOUT_H = 0x47
 
+#specify which file to load questions from, e.g. 'example-questions.json'
+question_file = 'questions_final.json'
+
+
 bus = smbus.SMBus(4)  # set bus for I2C
 Device_Address = 0x68  # MPU6050 device address
 
-
+# loads JSON file with questions as specified in question_file variable
+# selects random question from the file and outputs its question string
 def choose_random_question():
-    data = json.load(open('questions_final.json'))
+    data = json.load(open(question_file))
     return data[randrange(len(data))]["frage"]
 
 
