@@ -97,7 +97,7 @@ def chunker(seq, size):
 
 def display_question(question):
     LCD.setRGB(0, 255, 0)
-    for chunk in chunker(question, 16):
+    for chunk in chunker(question, 32):
         LCD.setText(chunk)
         time.sleep(3)
 
