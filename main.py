@@ -4,9 +4,24 @@ import logging
 import json
 from random import randrange
 import LCD as LCD
-import board
-import adafruit_mpu6050
-from adafruit_extended_bus import ExtendedI2C as I2C
+import smbus
+import numpy as np
+
+# some MPU6050 Registers and their Address
+PWR_MGMT_1 = 0x6B
+SMPLRT_DIV = 0x19
+CONFIG = 0x1A
+GYRO_CONFIG = 0x1B
+INT_ENABLE = 0x38
+ACCEL_XOUT_H = 0x3B
+ACCEL_YOUT_H = 0x3D
+ACCEL_ZOUT_H = 0x3F
+GYRO_XOUT_H = 0x43
+GYRO_YOUT_H = 0x45
+GYRO_ZOUT_H = 0x47
+
+bus = smbus.SMBus(4)  # set bus for I2C
+Device_Address = 0x68  # MPU6050 device address
 
 
 def choose_random_question():
@@ -14,15 +29,52 @@ def choose_random_question():
     return data[randrange(len(data))]["frage"]
 
 
+def MPU_Init():
+    # write to sample rate register
+    bus.write_byte_data(Device_Address, SMPLRT_DIV, 7)
+
+    # Write to power management register
+    bus.write_byte_data(Device_Address, PWR_MGMT_1, 1)
+
+    # Write to Configuration register
+    bus.write_byte_data(Device_Address, CONFIG, 0)
+
+    # Write to Gyro configuration register
+    bus.write_byte_data(Device_Address, GYRO_CONFIG, 24)
+
+    # Write to interrupt enable register
+    bus.write_byte_data(Device_Address, INT_ENABLE, 1)
+
+
+def read_raw_data(addr):
+    # Accelero and Gyro value are 16-bit
+    high = bus.read_byte_data(Device_Address, addr)
+    low = bus.read_byte_data(Device_Address, addr + 1)
+
+    # concatenate higher and lower value
+    value = ((high << 8) | low)
+
+    # to get signed value from mpu6050
+    if (value > 32768):
+        value = value - 65536
+    return value
+
+
 def gyro_changed():
-    i2c = I2C(4)  # Device is /dev/i2c-4
-    mpu = adafruit_mpu6050.MPU6050(i2c)
-    while True:
-        print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (mpu.acceleration))
-        print("Gyro X:%.2f, Y: %.2f, Z: %.2f rad/s" % (mpu.gyro))
-        print("Temperature: %.2f C" % mpu.temperature)
-        print("")
-        time.sleep(1)
+    gyro_rest = np.array([0.17, 0.3, 0.99])
+
+    print(" Reading Data of Gyroscope and Accelerometer")
+
+    acc_x = read_raw_data(ACCEL_XOUT_H)
+    acc_y = read_raw_data(ACCEL_YOUT_H)
+    acc_z = read_raw_data(ACCEL_ZOUT_H)
+
+    Ax = acc_x / 16384.0
+    Ay = acc_y / 16384.0
+    Az = acc_z / 16384.0
+    new_acc_data = np.array([Ax, Ay, Az])
+    logging.info(new_acc_data)
+    return np.allclose(gyro_rest, new_acc_data)
 
 
 def display_question(question):
@@ -31,6 +83,7 @@ def display_question(question):
 
 
 def start_loop():
+    MPU_Init()
     while True:
         if gyro_changed():
             question = choose_random_question()
