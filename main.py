@@ -77,10 +77,13 @@ gyro_rest = get_gyro_data()
 def gyro_changed():
     print(" Reading Data of Gyroscope and Accelerometer")
     new_acc_data = get_gyro_data()
+    logging.info("gyro old:")
     logging.info(gyro_rest)
+    logging.info("gyro new:")
     logging.info(new_acc_data)
-    logging.info(not np.allclose(gyro_rest, new_acc_data))
-    return not np.allclose(gyro_rest, new_acc_data)
+    test = not np.allclose(gyro_rest, new_acc_data, rtol=1, atol=1)
+    logging.info(test)
+    return test
 
 
 def display_question(question):
