@@ -26,6 +26,7 @@ question_file = 'questions_final.json'
 bus = smbus.SMBus(4)  # set bus for I2C
 Device_Address = 0x68  # MPU6050 device address
 
+
 # loads JSON file with questions as specified in question_file variable
 # selects random question from the file and outputs its question string
 def choose_random_question():
@@ -87,21 +88,24 @@ def gyro_changed():
     logging.info("gyro new:")
     logging.info(new_acc_data)
     test = not np.allclose(gyro_rest, new_acc_data, atol=0.3)
+    logging.info("gyro changed:")
     logging.info(test)
     return test
 
 
+# put string into chunks of size size
 def chunker(seq, size):
     return (seq[pos:pos + size] for pos in range(0, len(seq), size))
 
 
+# display question, while looping over the chunks of size 32
 def display_question(question):
-    LCD.setRGB(0, 255, 0)
+    LCD.setRGB(0, 0, 0)
     for chunk in chunker(question, 32):
         LCD.setText(chunk)
         time.sleep(3)
 
-
+# loop to manage everything
 def start_loop():
     MPU_Init()
     while True:
@@ -113,5 +117,6 @@ def start_loop():
 
 
 if __name__ == '__main__':
+    # basic setup of the logger & start of the main loop
     logging.basicConfig(level=logging.DEBUG)
     start_loop()
