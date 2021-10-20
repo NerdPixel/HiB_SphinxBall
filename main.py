@@ -121,4 +121,6 @@ def start_loop():
 if __name__ == '__main__':
     # basic setup of the logger & start of the main loop
     logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s', level=logging.INFO,
+                        datefmt='%d-%m-%Y %H:%M:%S')
     start_loop()
