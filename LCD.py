@@ -56,6 +56,10 @@ def textCommand(cmd):
     bus.write_byte_data(DISPLAY_TEXT_ADDR, 0x80, cmd)
 
 
+def clearLCD():
+    textCommand(0x01)  # clear display
+
+
 # set display text \n for second line(or auto wrap)
 def setText(text):
     textCommand(0x01)  # clear display

@@ -105,6 +105,7 @@ def display_question(question):
         LCD.setText(chunk)
         time.sleep(3)
 
+
 # loop to manage everything
 def start_loop():
     MPU_Init()
@@ -114,6 +115,7 @@ def start_loop():
             logging.info(question)
             display_question(question)
         time.sleep(0.5)
+        LCD.clearLCD()
 
 
 if __name__ == '__main__':
