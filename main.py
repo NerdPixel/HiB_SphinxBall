@@ -26,10 +26,10 @@ question_file = 'questions_final.json'
 bus = smbus.SMBus(4)  # set bus for I2C
 Device_Address = 0x68  # MPU6050 device address
 
-
 # loads JSON file with questions as specified in question_file variable
 # selects random question from the file and outputs its question string
 def choose_random_question():
+    logging.info("Loading questions from {}".format(question_file))
     data = json.load(open(question_file))
     return data[randrange(len(data))]["frage"]
 
