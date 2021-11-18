@@ -8,17 +8,21 @@
 5. Do the cutting (we worked with a laser cutting machine)
 6. Put the different parts together: We used wood glue to stick the individual parts together. Don't glue on the last side, e.g. the top, to be able to manipulate the hardware inside.
 7. For some of the hardware components, you may have to do some soldering before you can install them. (Watch this, to know how: https://www.youtube.com/watch?v=6rmErwU5E-k )
-8. Connect the Display, the gyro sensor, the speaker and the microphone with your Raspberry Pi and put all of it in the box.
+8. Connect the Display, the gyro sensor, the speaker and the microphone with your Raspberry Pi and put all of it in the box. For a detailed instruction click [here](#how-too-wire-everything-correct).
 9. Close the model with the last part.
 10. Voila!
-
-## How to Vosk-Model
-1. [Hier](https://alphacephei.com/vosk/models) `vosk-model-de-x.xx` runterladen
-2. entpacken & Ordner umbenennen in `model`
-3. `model` in HiB_SphinxBall verschieben
-4. Fertig 🎉
 
 ## Nice to know
 [Markdown](https://www.markdownguide.org/basic-syntax/)
 
 [JSON](https://developer.mozilla.org/de/docs/Learn/JavaScript/Objects/JSON#json_struktur)
+
+## How to wire everything correct
+
+Hardware we used:
+- Raspberry Pi 3 Model B+ 
+- Gyroscope: MPU6050
+- Display: Grove-LCD RGB Backlight V4.0
+
+To connect the Gyroscope and the Display we used the [I<sup>2</sup>C](https://en.wikipedia.org/wiki/I%C2%B2C) bus.
+Sadly the Pi only has one 
