@@ -12,10 +12,6 @@
 9. Close the model with the last part.
 10. Voila!
 
-## Nice to know
-[Markdown](https://www.markdownguide.org/basic-syntax/)
-
-[JSON](https://developer.mozilla.org/de/docs/Learn/JavaScript/Objects/JSON#json_struktur)
 
 ## How to wire everything correct
 
@@ -28,3 +24,9 @@ To connect the Gyroscope and the Display we used the [I<sup>2</sup>C](https://en
 The I<sup>2</sup>C consist of two pins, the SDA & SCL. Sadly the Pi only has only one SDA and SCL pin, therefore
 we need to add one I<sup>2</sup>C bus to the Pi. We followed [this](https://www.laub-home.de/wiki/Raspberry_Pi_multiple_I2C_bus) instruction.
 Connect the display to the Pi and the gyroscope and enjoy!
+
+## Nice to know
+[Markdown](https://www.markdownguide.org/basic-syntax/)
+
+[JSON](https://developer.mozilla.org/de/docs/Learn/JavaScript/Objects/JSON#json_struktur)
+
